@@ -7,14 +7,14 @@
 
 
 const titleClickHandler = function(event){
-  event.preventDefault();
-  const clickedElement = this;
-  console.log('Link was clicked!');
+    event.preventDefault();
+    const clickedElement = this;
+    console.log('Link was clicked!');
 
 /*[DONE] remove class 'active' from all article links  */
-const activeLinks = document.querySelectorAll('.titles a.active');
-for(let activeLink of activeLinks){
-  activeLink.classList.remove('active');
+    const activeLinks = document.querySelectorAll('.titles a.active');
+    for(let activeLink of activeLinks){
+    activeLink.classList.remove('active');
 }
   /*[DONE] add class 'active' to the clicked link */
   console.log('clickedElement:', clickedElement);
@@ -75,11 +75,13 @@ console.log('articleId: ', articleId );
     /* find the title element */
 const articleTitle = article.querySelector(optTitleSelector).innerHTML;
 console.log('articleTitle: ',articleTitle);
-}
+
     /* get the title from the title element */
 
     /* create HTML of the link */
-
+const linkHTML = '<li><a href="#' + articleId +'"><span>' + articleTitle +'</span></a></li>';
+console.log('linkHTML: ', linkHTML);
+}
     /* insert link into titleList */
 }
 
