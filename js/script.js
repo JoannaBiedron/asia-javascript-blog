@@ -62,7 +62,7 @@ function generateTitleLinks(){
   console.log('titleList: ', titleList);*/
 
   const  titleList = document.querySelector(optTitleListSelector);
-  titleList.innerHTML = '';
+  titleList.innerHTML = ''; /*Error*/
   console.log('titleList: ', titleList);
 
 
