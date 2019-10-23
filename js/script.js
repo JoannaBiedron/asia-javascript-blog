@@ -112,9 +112,10 @@ function generateTags(){
     const  ArticleTagSelector = article.querySelector(optArticleTagsSelector);
     console.log('ArticleTagSelector: ', ArticleTagSelector);
     /* make html variable with empty string */
-
+    let html = '';
     /* get tags from data-tags attribute */
-
+    const articleTags = article.getAttribute('data-tags');
+    console.log('articleTags: ', articleTags);
     /* split tags into array */
 
     /* START LOOP: for each tag */
