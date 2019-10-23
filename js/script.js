@@ -105,11 +105,12 @@ for(let link of links){
 
 function generateTags(){
   /* find all articles */
-
+  const articles = document.querySelectorAll(optArticleSelector);
   /* START LOOP: for every article: */
-
+  for (let article of articles) {
     /* find tags wrapper */
-
+    const  ArticleTagSelector = article.querySelector(optArticleTagsSelector);
+    console.log('ArticleTagSelector: ', ArticleTagSelector);
     /* make html variable with empty string */
 
     /* get tags from data-tags attribute */
@@ -127,6 +128,7 @@ function generateTags(){
     /* insert HTML of all the links into the tags wrapper */
 
   /* END LOOP: for every article: */
+  }
 }
 
 generateTags();
