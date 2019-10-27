@@ -47,6 +47,8 @@ const optArticleSelector = '.post';
 const optTitleSelector = '.post-title';
 const optTitleListSelector = '.titles';
 const optArticleTagsSelector = '.post-tags .list';
+const optArticleAuthorSelector = '.post-author';
+console.log('optArticleAuthorSelector: ', optArticleAuthorSelector);
 /*console.log('optArticleSelector', optArticleSelector);
 console.log('optTitleSelector',optTitleSelector);
 console.log('optTitleListSelector', optTitleListSelector);*/
@@ -178,6 +180,7 @@ function tagClickHandler(event){
 function addClickListenersToTags(){
   /* find all links to tags */
   const articleLinks = document. querySelectorAll ('.post-tags a');
+  console.log('articleLinks: ', articleLinks);
   /* START LOOP: for each link */
   for (let articleLink of articleLinks){
     /* add tagClickHandler as event listener for that link */
@@ -187,3 +190,67 @@ function addClickListenersToTags(){
 }
 
 addClickListenersToTags();
+
+function generateAuthors(){
+  //find all articleSelector
+
+  //start loop: for every article
+
+    //find author wrppers
+
+    //make html variable with empty string
+
+    //get author from data-author
+
+    //generate HTML of the links
+
+    //add generated code to html variable
+
+  //end loop for every article
+
+}
+
+generateAuthors();
+
+function authorClickHandler(){
+  //prevent default action for this addEventListener
+
+  //make new constatn namen "clickElement" and give it the value of "this"
+
+  // make a new constatn "href" and read the attribute "href" of the clicled element
+
+  //make new constatn "author" and extract author from the "href" constatn
+
+  //fimd all author links with class active
+
+  //start loop for each active author link
+
+    //remove class active
+
+  //end loop for each active author link
+
+  //find all author links with "href" attribute equal to the "href" constant
+
+  //start loop for each found author link
+
+      //add class active
+
+  //end loop for each found author link
+
+  //execute function "generateAuthors" with article selector as argument
+
+
+}
+
+function addClickListenersToAuthors(){
+  //find all links to Authors
+
+  //start loop for each link
+
+    //add tagClickHandler as event listener for that link
+
+  //end loop for each link
+
+}
+
+addClickListenersToAuthors();
