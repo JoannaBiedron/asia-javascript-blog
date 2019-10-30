@@ -247,7 +247,7 @@ function authorClickHandler(event){
   //end loop for each found author link
 }
   //execute function "generateAuthors" with article selector as argument
-generateTitleLinks ('[data-author='+ author +']');
+generateTitleLinks ('[data-author="'+ author +'"]');
 
 }
 
