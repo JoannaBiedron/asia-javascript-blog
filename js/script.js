@@ -96,20 +96,22 @@ function generateTitleLinks(customSelector = ''){
   }
 
   titleList.innerHTML = html;
+  const links = document.querySelectorAll('.titles a');
+  console.log('links: ', links);
+
+  for(let link of links){
+    link.addEventListener('click', titleClickHandler);
+  }
 }
 
 
 generateTitleLinks();
-const links = document.querySelectorAll('.titles a');
-console.log('links: ', links);
 
-for(let link of links){
-  link.addEventListener('click', titleClickHandler);
-}
 
 function generateTags(){
-  //create a new variable allTags with an empty array
-  let allTags = [];
+  //create a new variable allTags with an empty arrays ->object
+  //let allTags = [];
+  let allTags = {};
   /* find all articles */
   const articles = document.querySelectorAll(optArticleSelector);
   /* START LOOP: for every article: */
@@ -135,9 +137,13 @@ function generateTags(){
       html = html + linkHTML;
       console.log('let html:  ', html);
       //check if this link is not already in allTags
-      if (allTags.indexOf(linkHTML) == -1){
-        //add genareated code to allTags array
-        allTags.push(linkHTML);
+       //if(allTags.indexOf(linkHTML) == -1){
+      if (!allTags.hasOwnProperty(tag)){// ! -negacja
+        //add genareated code to allTags arrays ->object
+        //allTags.push(linkHTML);
+        allTags[tag] = 1;
+      } else {
+        allTags[tag]++;
       }
     /* END LOOP: for each tag */
     }
@@ -148,7 +154,8 @@ function generateTags(){
   //find list of tags in right column
   const tagList = document.querySelector('.tags');
   //add html rom allTags to tagList
-  tagList.innerHTML = allTags.join(' ');
+  //tagList.innerHTML = allTags.join(' ');
+console.log('allTags:', allTags);
 }
 
 generateTags();
