@@ -155,7 +155,19 @@ function generateTags(){
   const tagList = document.querySelector('.tags');
   //add html rom allTags to tagList
   //tagList.innerHTML = allTags.join(' ');
-console.log('allTags:', allTags);
+  //console.log('allTags:', allTags);
+  //create variable for all links HTML condimentum
+  let allTagsHTML = ' ';
+  //start loop: for each tag in allTagsHTML
+  for(let tag in allTags){
+    //generate code of a link and add it to allTagsHTML
+    //<li><a href="#">code</a> <span>(5)</span></li>
+    allTagsHTML += '<li><a href="#">' + tag + '</a> <span> (' +allTags[tag] +')</span></li>';
+  //end loop for each tag in allTags
+  }
+  //add html from allTagsHTML to tagList
+  tagList.innerHTML = allTagsHTML
+
 }
 
 generateTags();
