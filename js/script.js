@@ -1,9 +1,16 @@
 'use strict'
-/*document.getElementById('test-button').addEventListener('click', function(){
-  const links = document.querySelectorAll('.titles a');
-  console.log('links:', links);
-});*/
 
+const opt = {
+  articleSelector : '.post',
+  titleSelector : '.post-title',
+  titleListSelector : '.titles',
+  articleTagsSelector : '.post-tags .list',
+  articleAuthorSelector : '.post-author',
+  tagListSelector : '.tags.list',
+  cloudClassCount : 5,
+  cloudClassPrefix : 'tag-size-',
+  authorListSelector : '.authors.list',
+};
 
 
 const titleClickHandler = function(event){
@@ -42,22 +49,6 @@ const titleClickHandler = function(event){
 }
 
 
-
-const optArticleSelector = '.post';
-const optTitleSelector = '.post-title';
-const optTitleListSelector = '.titles';
-const optArticleTagsSelector = '.post-tags .list';
-const optArticleAuthorSelector = '.post-author';
-const optTagListSelector = '.tags.list';
-const optCloudClassCount = 5;
-const optCloudClassPrefix = 'tag-size-' ;
-const optAuthorListSelector = '.authors.list';
-
-//console.log('optArticleAuthorSelector: ', optArticleAuthorSelector);
-/*console.log('optArticleSelector', optArticleSelector);
-console.log('optTitleSelector',optTitleSelector);
-console.log('optTitleListSelector', optTitleListSelector);*/
-
 function generateTitleLinks(customSelector = ''){
   console.log('customSelector: ', customSelector);
 
@@ -65,14 +56,14 @@ function generateTitleLinks(customSelector = ''){
   /*const  titleList = document.querySelector(optTitleListSelector).innerHTML= '';
   console.log('titleList: ', titleList);*/
 
-  const  titleList = document.querySelector(optTitleListSelector);
+  const  titleList = document.querySelector(opt.titleListSelector);
   titleList.innerHTML = ''; /*Error*/
   console.log('titleList: ', titleList);
 
 
 
   /* for each article */
-  const articles = document.querySelectorAll(optArticleSelector + customSelector);
+  const articles = document.querySelectorAll(opt.articleSelector + customSelector);
   console.log('articles; ',articles);
 
   let html = '';
@@ -84,7 +75,7 @@ function generateTitleLinks(customSelector = ''){
     console.log('articleId: ', articleId );
 
     /* find the title element */
-    const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+    const articleTitle = article.querySelector(opt.titleSelector).innerHTML;
     console.log('articleTitle: ',articleTitle);
 
     /* get the title from the title element */
@@ -126,8 +117,8 @@ function calculateTagClass (count, params){
   const normalizedCount = count -params.min;
   const normalizedMax = params.max - params.min;
   const precentage = normalizedCount / normalizedMax;
-  const classNumber = Math.floor( precentage * (optCloudClassCount - 1) + 1);
-  return optCloudClassPrefix + classNumber;
+  const classNumber = Math.floor( precentage * (opt.cloudClassCount - 1) + 1);
+  return opt.cloudClassPrefix + classNumber;
 }
 
 function generateTags(){
@@ -135,11 +126,11 @@ function generateTags(){
   //let allTags = [];
   let allTags = {};
   /* find all articles */
-  const articles = document.querySelectorAll(optArticleSelector);
+  const articles = document.querySelectorAll(opt.articleSelector);
   /* START LOOP: for every article: */
   for (let article of articles) {
     /* find tags wrapper */
-    const  ArticleTagSelector = article.querySelector(optArticleTagsSelector);
+    const  ArticleTagSelector = article.querySelector(opt.articleTagsSelector);
     console.log('ArticleTagSelector: ', ArticleTagSelector);
     /* make html variable with empty string */
     let html = '';
@@ -254,11 +245,11 @@ function generateAuthors(){
   //create a new variable allTags with empty object
   let allAuthors = {};
   //find all articles
-  const articles = document.querySelectorAll(optArticleSelector);
+  const articles = document.querySelectorAll(opt.articleSelector);
   //start loop: for every article
   for(let article of articles){
     //find author wrppers
-    const articleAuthorSelector = article.querySelector(optArticleAuthorSelector);
+    const articleAuthorSelector = article.querySelector(opt.articleAuthorSelector);
     console.log('articleAuthorSelector: ', articleAuthorSelector);
     //make html variable with empty string
     let html = '';
