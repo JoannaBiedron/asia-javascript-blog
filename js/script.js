@@ -166,7 +166,8 @@ function generateTags(){
     allTagsData.tags.push({
       tag: tag,
       count: allTags[tag],
-      className: calculateTagClass(allTags[tag], tagsParams)});
+      className: calculateTagClass(allTags[tag], tagsParams)
+    });
   //end loop for each tag in allTags
   }
   //add html from allTagsHTML to tagList
@@ -266,15 +267,14 @@ const allTagsData = {tags: []};
 //start loop: for each author in allAuthors
 for(let author in allAuthors){
   //generate code of a link and add it to allAuthorsHTML
-  console.log('allAuthorsHTML: ', allAuthorsHTML);
-  allTagsData.authors.push({
-    authorName: auhtor,
+  allTagsData.tags.push({
+    authorName: author,
     numberOfArticles: allAuthors[author]
   })
 //end loop for each tag in allTags
 }
 //add html from allAuthorsHTML to tagList
-authorList.innerHTML = templates.authorList(allTagsData);
+authorList.innerHTML = templates.authorsList(allTagsData);
 }
 
 generateAuthors();
