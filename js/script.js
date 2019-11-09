@@ -215,7 +215,7 @@ function tagClickHandler(event){
 
 function addClickListenersToTags(){
   /* find all links to tags */
-  const articleLinks = document. querySelectorAll ('a[href^="#tags"]');
+  const articleLinks = document. querySelectorAll ('a[href^="#tag"]');
   console.log('articleLinks: ', articleLinks);
   /* START LOOP: for each link */
   for (let articleLink of articleLinks){
